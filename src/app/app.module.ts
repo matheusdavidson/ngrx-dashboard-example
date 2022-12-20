@@ -5,8 +5,11 @@ import { AuthHttpInterceptor, AuthModule } from '@auth0/auth0-angular';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavBarModule } from './shared';
-import { environment } from 'src/environments/environment';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { environment } from '../environments/environment';
+import { StoreModule } from '@ngrx/store';
+import { EffectsModule } from '@ngrx/effects';
 
 @NgModule({
   imports: [
@@ -23,6 +26,9 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
     }),
     AppRoutingModule,
     NavBarModule,
+    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
+    StoreModule.forRoot({}, {}),
+    EffectsModule.forRoot([]),
   ],
   declarations: [AppComponent],
   bootstrap: [AppComponent],
