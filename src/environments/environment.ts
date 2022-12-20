@@ -2,12 +2,12 @@
 // `ng build --prod` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
 
-import { AuthConfig } from './auth-config';
+import * as authConfig from "./auth-config.json";
 
 export const environment = {
   production: false,
-  auth: AuthConfig,
-  serverUrl: 'http://localhost:7070',
+  auth: authConfig,
+  serverUrl: "http://localhost:7070",
 };
 
 /*
