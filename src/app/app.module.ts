@@ -12,32 +12,29 @@ import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 
 @NgModule({
-  imports: [
-    BrowserModule,
-    HttpClientModule,
-    AuthModule.forRoot({
-      ...environment.auth,
-      httpInterceptor: {
-        allowedList: [
-          `${environment.serverUrl}/api/menu/items`,
-          `${environment.serverUrl}/api/menu/items/*`,
-        ],
-      },
-    }),
-    AppRoutingModule,
-    NavBarModule,
-    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
-    StoreModule.forRoot({}, {}),
-    EffectsModule.forRoot([]),
-  ],
-  declarations: [AppComponent],
-  bootstrap: [AppComponent],
-  providers: [
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: AuthHttpInterceptor,
-      multi: true,
-    },
-  ],
+    imports: [
+        BrowserModule,
+        HttpClientModule,
+        AuthModule.forRoot({
+            ...environment.auth,
+            httpInterceptor: {
+                allowedList: [`${environment.serverUrl}/api/menu/items`, `${environment.serverUrl}/api/menu/items/*`],
+            },
+        }),
+        AppRoutingModule,
+        NavBarModule,
+        StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
+        StoreModule.forRoot({}, {}),
+        EffectsModule.forRoot([]),
+    ],
+    declarations: [AppComponent],
+    bootstrap: [AppComponent],
+    providers: [
+        {
+            provide: HTTP_INTERCEPTORS,
+            useClass: AuthHttpInterceptor,
+            multi: true,
+        },
+    ],
 })
 export class AppModule {}
