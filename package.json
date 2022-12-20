@@ -65,5 +65,17 @@
     "protractor": "~7.0.0",
     "ts-node": "~7.0.0",
     "typescript": "~4.2.4"
+  },
+  "prettier": {
+    "tabWidth": 4,
+    "printWidth": 200,
+    "singleQuote": true,
+    "jsxBracketSameLine": false,
+    "disableLanguages": [
+      "html",
+      "css",
+      "scss"
+    ],
+    "formatOnSave": false
   }
 }
