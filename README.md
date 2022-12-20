@@ -1,3 +1,8 @@
+> Missing repo for https://auth0.com/blog/state-management-in-angular-with-ngrx-1
+
+> remember to give it a **star** ⭐
+
+
 # Auth0 Eats Dashboard App
 
 This sample uses the [Auth0 Angular SDK](https://github.com/auth0/auth0-angular) to implement the following security tasks:
