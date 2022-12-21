@@ -1,7 +1,4 @@
-import { MenusState } from './menus';
-
 export * from './menus-state.service';
 
-export interface State {
-    menus: MenusState;
-}
+export * from "./core.state";
+export * from "./core.reducer";
