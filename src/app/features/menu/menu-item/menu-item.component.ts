@@ -5,6 +5,7 @@ import { map, switchMap } from 'rxjs/operators';
 import { MenusStateService, RolesService } from 'src/app/core';
 import { Store } from '@ngrx/store';
 import { selectMenuItem } from 'src/app/core/state/menus';
+import { selectIsAdmin } from 'src/app/core/state/user';
 
 @Component({
     selector: 'app-menu-item',
@@ -16,7 +17,8 @@ export class MenuItemComponent {
 
     // menuItem$ = this.menuItemId$.pipe(switchMap((id) => this.menusStateService.selectMenuItem$(id)));
     menuItem$ = this.menuItemId$.pipe(switchMap((id) => this.store.select(selectMenuItem({ id: id }))));
-    isAdmin$ = this.rolesService.isAdmin$;
+    // isAdmin$ = this.rolesService.isAdmin$;
+    isAdmin$ = this.store.select(selectIsAdmin);
 
     constructor(
         private activatedRoute: ActivatedRoute,
