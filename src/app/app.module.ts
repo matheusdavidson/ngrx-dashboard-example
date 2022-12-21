@@ -12,6 +12,7 @@ import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { metaReducers, reducers } from './core';
 import { MenusEffects } from './core/state/menus';
+import { UserEffects } from './core/state/user';
 
 @NgModule({
     imports: [
@@ -27,7 +28,7 @@ import { MenusEffects } from './core/state/menus';
         NavBarModule,
         StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
         StoreModule.forRoot(reducers, { metaReducers }),
-        EffectsModule.forRoot([MenusEffects]),
+        EffectsModule.forRoot([MenusEffects, UserEffects]),
     ],
     declarations: [AppComponent],
     bootstrap: [AppComponent],
